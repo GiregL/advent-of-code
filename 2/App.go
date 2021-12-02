@@ -17,18 +17,20 @@ import (
 type Submarine struct {
 	horizontalPos int
 	depth int
+	aim int
 }
 
 func (sub *Submarine) Forward(x int) {
 	sub.horizontalPos += x
+	sub.depth += sub.aim * x
 }
 
 func (sub *Submarine) Down(x int) {
-	sub.depth += x
+	sub.aim += x
 }
 
 func (sub *Submarine) Up(x int) {
-	sub.depth -= x
+	sub.aim -= x
 }
 
 func (sub *Submarine) Multiply() int {
